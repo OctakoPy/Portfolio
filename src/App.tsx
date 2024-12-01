@@ -9,12 +9,15 @@ import Projects from "./pages/Projects";
 
 const queryClient = new QueryClient();
 
+// Get the base URL from the homepage in package.json, or default to '/'
+const baseUrl = import.meta.env.BASE_URL;
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={baseUrl}>
         <Navigation />
         <Routes>
           <Route path="/" element={<Index />} />
