@@ -1,5 +1,6 @@
-import { Atom, CircuitBoard } from "lucide-react";
+import { Atom, CircuitBoard, Headphones, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -40,15 +41,15 @@ const Index = () => {
           </h2>
           <div className="bg-white/5 backdrop-blur-lg rounded-lg p-6 border border-futuristic-accent/20">
             <p className="text-lg leading-relaxed">
-              I'm a passionate developer on a journey to create amazing web experiences. 
-              Currently exploring new technologies and building my portfolio. 
-              I love turning complex problems into simple, beautiful solutions.
+              I'm a passionate developer focused on creating innovative solutions and meaningful user experiences. 
+              My journey in software development has led me to explore various technologies and build practical applications 
+              like my Audiobook Player project. I love turning complex problems into simple, beautiful solutions.
             </p>
           </div>
         </motion.div>
       </section>
 
-      {/* Projects Preview Section */}
+      {/* Featured Project Section */}
       <section className="container mx-auto px-4 py-20">
         <motion.div
           initial={{ opacity: 0 }}
@@ -56,18 +57,26 @@ const Index = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-8 text-center">Coming Soon</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="bg-white/5 backdrop-blur-lg rounded-lg p-6 border border-futuristic-accent/20 animate-glow"
-              >
-                <div className="h-40 bg-futuristic-accent/10 rounded-md mb-4" />
-                <div className="h-4 w-3/4 bg-futuristic-accent/10 rounded mb-2" />
-                <div className="h-4 w-1/2 bg-futuristic-accent/10 rounded" />
+          <h2 className="text-3xl font-bold mb-12 text-center">Featured Project</h2>
+          <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-lg rounded-lg p-8 border border-futuristic-accent/20">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="p-4 bg-futuristic-accent/10 rounded-full">
+                <Headphones className="w-12 h-12 text-futuristic-accent" />
               </div>
-            ))}
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-2xl font-bold mb-2">Audiobook Player</h3>
+                <p className="text-gray-400 mb-4">
+                  A comprehensive audiobook player application with features like progress tracking and library management.
+                </p>
+                <Link 
+                  to="/projects" 
+                  className="inline-flex items-center space-x-2 text-futuristic-accent hover:text-futuristic-light transition-colors"
+                >
+                  <span>View Project Details</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </motion.div>
       </section>
